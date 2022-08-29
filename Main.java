@@ -5,16 +5,39 @@
 //pour importer la classe, on utilise le format import package.class
 import classes.personnage; // on import la classe personnage
 import classes.rapport;// on import la classe rapport
+import java.util.HashMap;
 
 public class Main // la class Main et la classe principal du programme celle que le compilo va chercher en premier
 {
 	public static void main(String[] args) { // on declare le constructeur (il est special pour le main car il a un type), l'arguments donné ici correspond au parametre a l'execution tkt on verra sa plus tard si tu veux
        // on crée les objet. va voir le fichier personnage.java et rapport.java pour comprendre pourquoi je donne cette arguments.
+	   if (args.length < 2){
+			System.out.println("ERROR: PLEASE GIVE 2 NAME AS PARAMETERS");	  
+			System.exit(84); 
+		}
+		HashMap<String, personnage> args_to_perso = new HashMap<String, personnage>();
+
 		personnage Aya = new personnage("Aya"); 
+		args_to_perso.put(Aya.name, Aya);
 		personnage Saad = new personnage("Saad");
+		args_to_perso.put(Saad.name, Saad);
 		personnage Reda = new personnage("Reda");
+		args_to_perso.put(Reda.name, Reda);
+		for (int i = 0; i < 2; i ++){
+			if (args_to_perso.get(args[i]) == null){
+				System.out.println("UNOWN NAME");
+				System.exit(84);
+			}
+		}
 		rapport equal  = new rapport();
-		System.out.println(equal.get(Reda, Aya)); // on print le resultat
+		System.out.println("la relation entre " + args_to_perso.get(args[0]).name + " et " + args_to_perso.get(args[1]).name  + " est: " + equal.get(args_to_perso.get(args[0]), args_to_perso.get(args[1]))); // on print le resultat
+		for (int i = 0; i < 2; i ++){
+			if (args_to_perso.get(args[i]).is_beau_gosse() == true) {
+				System.out.println(args_to_perso.get(args[i]).name + " est beau/belle.");
+			} else {
+				System.out.println(args_to_perso.get(args[i]).name + " est éclaté au sol.");
+			}
+		}
 	}
 }
 

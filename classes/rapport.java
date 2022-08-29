@@ -1,6 +1,5 @@
 // va voir personnage.java avant
 
-
 package classes;
 import classes.personnage;
 
@@ -18,6 +17,8 @@ public class rapport{
             return "amis";
         } else if (a.name.equals("Aya") && b.name.equals("Saad")){
             return null;
+        } else if ((a.name.equals("Reda") && b.name.equals("Saad")) || (a.name.equals("Saad") && b.name.equals("Reda"))) {
+            return "amis";
         } else {
             return "undifined";
         }
