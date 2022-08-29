@@ -4,4 +4,4 @@
 
 ```shell
   javac Main.java
-  java Main
+  java Main {name1} {name2}
