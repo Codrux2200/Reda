@@ -11,7 +11,7 @@ public class personnage { // une classe independante et forcement public.
         this.name = name; // si un argument et un attribut on le meme nom. on utilise le prefixe this pour les differencier. this.name ici
         // etant l'attribut
     }
-    public boolean is_beau_gosse() // public classe
+    public boolean is_beau_gosse() // public classe ici on donne un type on veux return un boolean.
     {
         if (name.equals("Saad")){
             return false;
